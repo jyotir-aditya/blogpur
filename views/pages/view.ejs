@@ -1,0 +1,9 @@
+<%- include("../header.ejs") %>
+<% if(locals.info){ %>
+<h1 class="text-center py-3 myfont"><%= info.heading%></h1>
+<p class="myfont fs-4"><%= info.content %></p>
+<% }else{ %>
+<h1>Data is not present.</h1>
+<% } %>
+
+<%- include("../footer.ejs") %>

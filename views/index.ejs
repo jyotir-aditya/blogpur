@@ -1,0 +1,53 @@
+<%- include("header.ejs") %>
+
+<!-- <h1 class="text-center pb-3">Homepage</h1> -->
+
+<div class="p-4 p-md-5 rounded text-body-emphasis banner">
+  <div class="col-lg-6 px-0">
+    <h1 class="display-4 fst-italic myfont">Sharing your thoughts and experiences</h1>
+    <p class="lead my-3 myfont">Open minds, open comments. This blog is a safe space to think together. No thought too small, no opinion too bold. </p>
+    <p class="lead mb-0 myfont"><a href="/post" class="text-body-emphasis fw-bold">Post your thoughts...</a></p>
+  </div>
+</div>
+
+<!-- <a href="/post">Post</a> -->
+<% if(locals.info) {%>
+<div id="blogs" class="album py-5 ">
+    <div class="container">
+      <div id="card" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <% info.forEach(element => { %>
+        <div class="col">
+          <div class="card shadow-sm">
+            <!-- <img src="https://img.freepik.com/free-vector/mandala-pattern-design-white-background_1308-43563.jpg?w=740&t=st=1705051187~exp=1705051787~hmac=b99c72df62b445dfb583605acf5cdbbe4cbeb745e1a104e94e88fd85d0d523f1" class="bd-placeholder-img card-img-top" width="100%" height="300" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></img> -->
+            <div class="cardbg card-body">
+              <p class="card-text fw-bold myfont"><%= element.heading %></p> 
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <form action="/view" method="POST">
+                    <input type="hidden" name="view" value= "<%= JSON.stringify(element) %>" >
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">View</button></form>
+
+                    <form action="/edit" method="POST">
+                      <input type="hidden" name="view" value= "<%= JSON.stringify(element) %>" >
+                      <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button></form>
+
+                  <form action="/delete" method="POST">
+                    <input type="hidden" name="id" value= "<%= JSON.stringify(element) %>" >
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">Delete</button></form>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+    </div>
+  </div>
+  <% }else{ %>
+    <h3>There is no data</h>
+    <% } %>
+
+
+
+
+<%- include("footer.ejs") %>

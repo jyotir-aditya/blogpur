@@ -1,0 +1,29 @@
+<%- include("../header.ejs") %>
+
+<!-- <h1>Edit blog</h1>
+<form action="/edit/sumbit" method="POST">
+    <label for="heading">Heading:</label><br>
+    <input type="text" id="heading" name="heading" ><br>
+    <label for="content">Content:</label><br>
+    <input type="text" id="content" name="content" ><br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>  -->
+
+  <img class="postimg" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+  <form class="justify-content-center align-items-center" action="/edit/sumbit" method="POST">
+    
+    <h1 class="h3 mb-3 fw-normal text-center">Post blog</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="floatingInput" name="heading" placeholder="Heading">
+      <label for="floatingInput">Heading</label>
+    </div>
+    <div class="form-floating">
+      <input style="height: 300px;" type="text" class="form-control" id="floatingInput" name="content" placeholder="Content">
+      <label for="floatingInput">Content</label>
+    </div>
+    <button class="btn btn-primary w-100 py-2" type="submit">Post</button>
+    <p class="mt-5 mb-3 text-body-secondary">© 2024</p>
+  </form>
+<%- include("../footer.ejs") %>

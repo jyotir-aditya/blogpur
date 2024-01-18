@@ -1,0 +1,130 @@
+
+/*  <uniquifier>: Use a uniquifier for the class name
+ <weight>: Use a value from 400 to 900 */
+.postimg{
+    display:block;
+    margin:auto;
+}
+.banner{
+    background-image: url(../assets/blog1.png);
+}
+.mybackground{
+        /* background-image:url(../assets/green1.png); */
+        background-color: #7FC7D9;
+        border-radius: 6px;
+}
+.cardbg{
+    background-color: #EEF5FF;
+}
+.bodybg{
+    background-color: #DCF2F1;
+}
+.myfont{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+}
+nav {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100px;
+    padding: 0 5%;
+
+}
+nav .links {
+    float: right;
+    padding: 0;
+    margin: 0;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+nav .links li {
+    list-style: none;
+}
+/* links on */
+nav .links a {
+    display: block;
+    padding: 1em;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0c0c0c;
+    text-decoration: none;
+    position: relative;
+}
+
+
+/* on hover line */
+nav .links a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+    color: rgb(8, 7, 7);
+}
+#nav-toggle {
+     position: absolute;
+     top: -100px;
+}
+nav .icon-burger {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 30%;
+    transform: translateY(-50%);
+}
+/* line of icon */
+nav .icon-burger .line {
+    width: 30px;
+    height: 5px;
+    background-color: #090909;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all .5s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+    nav .logo {
+        float: none;
+        width: auto;
+        justify-content: center;
+    }
+    nav .links {
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100%;
+        width: auto;
+        height: auto;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background-color: rgba(234, 223, 223, 0.8);
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+    nav .links a {
+        font-size: 20px;
+    }
+    nav :checked ~ .links {
+        bottom: 0;
+    }
+    nav .icon-burger {
+        display: block;
+    }
+    nav :checked ~ .icon-burger .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+    }
+    nav :checked ~ .icon-burger .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+    }
+    nav :checked ~ .icon-burger .line:nth-child(2) {
+        opacity: 0;
+    }
+}
